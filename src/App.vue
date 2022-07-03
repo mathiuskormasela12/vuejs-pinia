@@ -5,21 +5,28 @@ import useCounterStore from "./stores/counter";
 
 const counterStore = useCounterStore();
 
+// Consumed the pinia state
 const count = computed(() => counterStore.count);
+
+// Consume the pinia getters with params
 const countFromGetters = computed(() => counterStore.addCount(2));
+// Consume the pinia getters without params
 const countFromGetters2 = computed(() => counterStore.addCount2);
 
 const handleIncrement = () => {
+  // Changing Pinia State
   counterStore.$patch((state) => {
     state.count++;
   });
 };
 
 const handleDecrement = () => {
+  // Using Pinia Action
   counterStore.incrementOrDecrement("DECREMENT");
 };
 
 const handleReset = () => {
+  // Reset the Pinia States
   counterStore.$reset();
 };
 

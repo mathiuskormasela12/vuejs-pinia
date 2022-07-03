@@ -3,11 +3,13 @@
 import { defineStore } from "pinia";
 
 const useCounterStore = defineStore("counter", {
+  // Defined Pinia State
   state() {
     return {
       count: 0,
     };
   },
+  //   Defined Pinia Getters
   getters: {
     // Getters With Params
     addCount() {
@@ -18,6 +20,7 @@ const useCounterStore = defineStore("counter", {
       return this.count + 10;
     },
   },
+  //   Defined Pinia Actions
   actions: {
     incrementOrDecrement(name) {
       switch (name) {
